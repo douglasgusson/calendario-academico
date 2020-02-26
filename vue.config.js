@@ -1,3 +1,5 @@
 module.exports = {
-    publicPath: 'calendario-academico'
+    publicPath: process.env.NODE_ENV === 'production'
+        ? '/calendario-academico/'
+        : '/'
 }
