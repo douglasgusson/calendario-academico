@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Calendario title="Calendário SI (2020)"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Calendario from './components/Calendario.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Calendario
   }
 }
 </script>
