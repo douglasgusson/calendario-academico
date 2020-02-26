@@ -8,8 +8,8 @@
         <dl>
           <dt>Procedimento</dt>
           <dd>{{ data.procedimento }}</dd>
-          <dt>Período</dt>
-          <dd>{{ data.periodo[0] | dateFormat }} à {{ data.periodo[1] | dateFormat }}</dd>
+          <dt>{{ labelPeriodo }}</dt>
+          <dd>{{ data.periodo | periodoFormat }}</dd>
         </dl>
       </div>
     </div>
@@ -27,21 +27,22 @@ export default {
   data() {
     return {
       search: "",
-      dados: json
+      dados: json,
+      labelPeriodo: "Período"
     };
   },
   filters: {
-    dateFormat: function(value) {
-      if (!value) return "";
-      let d = new Date(value);
-      return d.toLocaleDateString();
-    },
-    periodoFormat: function(value) {
+    periodoFormat(value) {
       let di = new Date(value[0]);
       let df = new Date(value[1]);
-      if (value[0] == value[0]) return di.toLocaleDateString();
+
+      if (value[0] == value[1]) {
+        //this.labelPeriodo = "Data";
+        return di.toLocaleDateString();
+      }
+      //this.labelPeriodo = "Período";
       return `${di.toLocaleDateString()} à ${df.toLocaleDateString()}`;
-    }
+    },
   },
   methods: {
     filteredList: function() {
